@@ -1,0 +1,22 @@
+{
+    "name": "anteris-dev/selenium-browser",
+    "description": "A browser-like experience with Selenium.",
+    "autoload": {
+        "psr-4": {
+            "Anteris\\Selenium\\Client\\": "./src"
+        }
+    },
+    "require": {
+        "php-webdriver/webdriver": "^1.8",
+        "league/event": "^2.2"
+    },
+    "authors": [
+        {
+            "name": "Aidan Casey",
+            "email": "aidan.casey@anteris.com"
+        }
+    ],
+    "require-dev": {
+        "anteris-dev/selenium-server": "^1.0"
+    }
+}
