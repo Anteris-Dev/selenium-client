@@ -2,7 +2,6 @@
 
 namespace Anteris\Selenium\Client;
 
-use Anteris\Selenium\Client\Browser;
 use Facebook\WebDriver\Interactions\WebDriverActions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\RemoteWebElement;
@@ -40,6 +39,7 @@ class Scenario
     {
         $result = $this->driver->get($this->getUrl($url));
         $this->browser->associateWindowWithScenario($result->getWindowHandle(), $this);
+
         return $result;
     }
 
@@ -49,6 +49,7 @@ class Scenario
     public function getInNewTab(string $url = '/')
     {
         $this->browser->createTab();
+
         return $this->get($url);
     }
 
@@ -62,7 +63,7 @@ class Scenario
 
     /**
      * Returns multiple elements retrieved by their CSS selector.
-     * 
+     *
      * @param string $selector
      *
      * @return RemoteWebElement[]

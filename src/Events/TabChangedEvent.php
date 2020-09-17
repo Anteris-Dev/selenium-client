@@ -18,7 +18,7 @@ class TabChangedEvent extends AbstractBrowserEvent
     public function __construct(Browser $browser, string $previousTabHandle, string $currentTabHandle)
     {
         $this->previousTabHandle = $previousTabHandle;
-        $this->currentTabHandle = $currentTabHandle;
+        $this->currentTabHandle  = $currentTabHandle;
 
         parent::__construct($browser);
     }

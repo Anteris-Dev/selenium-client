@@ -5,9 +5,9 @@ namespace Anteris\Selenium\Client\Scenarios;
 use Anteris\Selenium\Client\Scenario;
 
 /**
- * This is an example scenario that takes you to Google.com and searches 
+ * This is an example scenario that takes you to Google.com and searches
  * "this is awesome" in the search bar.
- * 
+ *
  * @author Aidan Casey <aidan.casey@anteris.com>
  */
 class GoogleScenario extends Scenario

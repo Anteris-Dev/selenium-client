@@ -14,8 +14,7 @@ class DriverFactory
     public static function create(
         $driver = 'gecko',
         $host = 'http://localhost:4444/wd/hub'
-    ): RemoteWebDriver
-    {
+    ): RemoteWebDriver {
         /**
          * In this section, we determine the desired capabilities of the
          * browser based on the driver used.

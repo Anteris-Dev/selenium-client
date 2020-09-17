@@ -2,9 +2,7 @@
 
 namespace Anteris\Selenium\Browser;
 
-use Anteris\Selenium\Browser\Browser;
 use Exception;
-use ReflectionClass;
 use Symfony\Component\Process\Process;
 
 class Selenium

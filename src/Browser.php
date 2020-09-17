@@ -4,13 +4,13 @@ namespace Anteris\Selenium\Client;
 
 use Anteris\Selenium\Client\Events\BrowserStartedEvent;
 use Anteris\Selenium\Client\Events\BrowserStoppedEvent;
-use Anteris\Selenium\Client\Exceptions\InvalidScenarioException;
 use Anteris\Selenium\Client\Events\ScenarioAddedEvent;
 use Anteris\Selenium\Client\Events\ScenarioRunningEvent;
 use Anteris\Selenium\Client\Events\ScenariosRunningEvent;
 use Anteris\Selenium\Client\Events\TabChangedEvent;
 use Anteris\Selenium\Client\Events\TabClosedEvent;
 use Anteris\Selenium\Client\Events\TabCreatedEvent;
+use Anteris\Selenium\Client\Exceptions\InvalidScenarioException;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use League\Event\Emitter;
 use ReflectionClass;
@@ -89,30 +89,30 @@ class Browser
     }
 
     /***************************************************************************
-     * 
+     *
      * This section handles all the Scenario stuff.
-     * 
+     *
      **************************************************************************/
 
-     /**
-      * Keeps a record of the scenario controlling a window.
-      */
-     public function associateWindowWithScenario(string $windowHandle, Scenario $scenario): void
-     {
+    /**
+     * Keeps a record of the scenario controlling a window.
+     */
+    public function associateWindowWithScenario(string $windowHandle, Scenario $scenario): void
+    {
         $this->windowToScenarioAssociations[$windowHandle] = $scenario;
-     }
+    }
 
-     /**
-      * Gets the scenario associated with a window handle.
-      */
-     public function getWindowsAssociatedScenario(string $windowHandle)
-     {
-         if (! isset($this->windowToScenarioAssociations[$windowHandle])) {
-             return false;
-         }
+    /**
+     * Gets the scenario associated with a window handle.
+     */
+    public function getWindowsAssociatedScenario(string $windowHandle)
+    {
+        if (! isset($this->windowToScenarioAssociations[$windowHandle])) {
+            return false;
+        }
 
-         return $this->windowToScenarioAssociations[$windowHandle];
-     }
+        return $this->windowToScenarioAssociations[$windowHandle];
+    }
 
     /**
      * Adds a new scenario to the browser.
@@ -122,7 +122,7 @@ class Browser
         // Add the scenario
         $reflectionClass = new ReflectionClass($class);
 
-        if (!$reflectionClass->isSubclassOf(Scenario::class)) {
+        if (! $reflectionClass->isSubclassOf(Scenario::class)) {
             throw new InvalidScenarioException(
                 'Scenarios must extend "Anteris\Selenium\Client\Scenario"!'
             );
@@ -192,9 +192,9 @@ class Browser
     }
 
     /***************************************************************************
-     * 
+     *
      * This section handles all the Browser tab stuff.
-     * 
+     *
      **************************************************************************/
 
     /**
@@ -209,7 +209,7 @@ class Browser
         } else {
             $this->driver->executeScript('window.open("", "_blank");');
             $handles = $this->driver->getWindowHandles();
-            $handle = end($handles);
+            $handle  = end($handles);
             $this->driver->switchTo()->window($handle);
         }
 
@@ -306,14 +306,14 @@ class Browser
     }
 
     /***************************************************************************
-     * 
+     *
      * Helpful little helpers
-     * 
+     *
      **************************************************************************/
 
-     /**
-      * Quits the browser if currently running and emits an event.
-      */
+    /**
+     * Quits the browser if currently running and emits an event.
+     */
     public function quit()
     {
         if ($this->driver->getCommandExecutor()) {
@@ -327,6 +327,7 @@ class Browser
      */
     public function wait(): void
     {
-        while (true) {}
+        while (true) {
+        }
     }
 }
